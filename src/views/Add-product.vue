@@ -102,7 +102,7 @@ export default {
         //    const response = await axios.post('https://scandiwebtaskenko.000webhostapp.com/', data)
         //    console.log(response);
 
-        const response = fetch("http://localhost:3000/", {
+        const response = fetch("https://scandiwebtaskenko.000webhostapp.com/", {
         // const response = fetch("https://scandiwebtaskenko.000webhostapp.com/", {
       method: "POST", // or 'PUT'
       
@@ -110,7 +110,7 @@ export default {
     })
     .then(res => res.json())
     .then(data => {
-        // console.log(data);
+        // console.log(data.errors);
         const errors = data.errors;
             if(data !== 'success'){
                 this.errors = errors
