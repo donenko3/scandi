@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <input type="checkbox" :checked="this.checked" @click="toggleChecked">
+        <input type="checkbox" class="delete-checkbox" :checked="this.checked" @click="toggleChecked">
         <p class="product-sku">SKU: {{product.sku}}</p>
         <p class="product-name">Name: {{product.name}}</p>
         <p class="product-price">Price: ${{product.price}}</p>

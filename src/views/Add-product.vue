@@ -65,7 +65,7 @@ export default {
     
     data (){
         return {
-            type:"",
+            type:"furniture",
             sku:"",
             name:"",
             price:"",

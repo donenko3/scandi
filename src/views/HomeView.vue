@@ -1,7 +1,7 @@
 <template>
   <div class="buttons">
     <RouterLink to="/add-product"><button>ADD</button></RouterLink>
-   <button @click="deleteProducts">DELETE</button>
+   <button id="delete-product-btn" @click="deleteProducts">DELETE</button>
   </div>
  <div class="products">
   <Product v-for="product in products" 
