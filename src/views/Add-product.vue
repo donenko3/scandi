@@ -4,7 +4,7 @@
         <h3>Select a product to add :</h3>
 
 
-        <form @submit.prevent="handleSubmit($event)" action="http://localhost:3000/add-product" method="post" id="product_form">
+        <form @submit.prevent="handleSubmit($event)"  id="product_form">
             <div class="input">
                 <p v-if="this.errors['sku']">{{this.errors['sku'][0]}}</p>
                 <label for="sku">SKU</label>
@@ -110,11 +110,11 @@ export default {
     })
     .then(res => res.json())
     .then(data => {
-        // console.log(data.errors);
+        console.log(data);
         const errors = data.errors;
             if(data !== 'success'){
                 this.errors = errors
-                console.log(data);
+                // console.log(data);
             } else {
                 this.$router.push('/');
                 console.log("success");
