@@ -1,30 +1,24 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <NavBar :GetSearchedMovies="GetSearchedMovies"/>
+  <router-view :searchMovies="searchMovies"/>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import NavBar from './components/Navbar.vue'
+export default {
+  components: {
+    NavBar
+  },
+  methods: {
+    
+  },
+  data () {
+    return {
+    }
+  }
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+</script>
+<style scoped>
+body {
+  background: #264653;
 }
 </style>
