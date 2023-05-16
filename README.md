@@ -1,4 +1,4 @@
-# tv-show
+# scandiweb
 
 ## Project setup
 ```
