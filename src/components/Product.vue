@@ -5,11 +5,11 @@
         <p class="product-name">Name: {{product.name}}</p>
         <p class="product-price">Price: ${{product.price}}</p>
         <p class="product-type">Type: {{product.type}}</p>
-        <p v-if="product.size" class="product-size">Size: {{product.size}}</p>
-        <p v-if="product.weight" class="product-weight">Weight: {{product.weight}}</p>
+        <p v-if="product.size" class="product-size">Size: {{product.size}} MB</p>
+        <p v-if="product.weight" class="product-weight">Weight: {{product.weight}} KG</p>
         <p v-if="this.renderDimensions(product.length, product.height, product.width)" 
-        class="product-dimension">Dimension: {{product.length}}
-         x {{ product.height }} x {{ product.width }}</p>
+        class="product-dimension">Dimension: {{product.length}}cm
+         x {{ product.height }}cm x {{ product.width }}cm</p>
     </div>
 
 </template>
@@ -38,3 +38,19 @@ data () {
 }
 }
 </script>
+
+<style scoped>
+
+    .product {
+        padding: 10px 15px;
+        width: 250px;
+        height: 200px;
+        border: 1px solid black;
+    }
+    .product input {
+        margin: 5px 0 0 5px;
+        }
+    .product p {
+        margin: 5px 0 0 5px;
+    }
+</style>

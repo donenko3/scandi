@@ -1,0 +1,16 @@
+{
+    "name": "bad_b/scandi-web_task",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Enis Asani",
+            "email": "enkotrd@gmail.com"
+        }
+    ],
+   
+    "require": {}
+}

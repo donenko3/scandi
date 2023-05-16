@@ -1,14 +1,22 @@
 <template>
-  <div class="buttons">
+
+  <div class="container">
+  <div class="home_header">
+    <h3>Product List</h3>
+    <div class="buttons">
     <RouterLink to="/add-product"><button>ADD</button></RouterLink>
    <button id="delete-product-btn" @click="deleteProducts">DELETE</button>
   </div>
+  </div>
+  <hr class="hr">
+  
  <div class="products">
   <Product v-for="product in products" 
   :key="product.id" 
   :product="product"
   :addCheckedProduct="addCheckedProduct"/>
  </div>
+</div>
 </template>
 
 <script>
@@ -64,17 +72,28 @@ export default {
 }
 </script>
 <style scoped>
-
+.home_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttons button{
+  margin-right: 5px;
+  padding: 7px 15px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #264653;
+}
 .products {
-  padding: 0 15px;
   width: 100%;
   height: 320px;
   display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
+  flex-wrap: wrap;
+  /* overflow-x: scroll; */
   align-items: center;
-  gap: 20px;
-  scroll-snap-type: x mandatory;
+  gap: 40px;
+  /* scroll-snap-type: x mandatory; */
   /* border: 1px solid black; */
 }
 ::-webkit-scrollbar {

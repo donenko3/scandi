@@ -1,27 +1,33 @@
 <template>
     <div class="container">
-
-        <h3>Select a product to add :</h3>
-
-
-        <form @submit.prevent="handleSubmit($event)"  id="product_form">
-            <div class="input">
-                <p v-if="this.errors['sku']">{{this.errors['sku'][0]}}</p>
-                <label for="sku">SKU</label>
-                <input type="text" id="sku" name="sku" v-model="sku">
+        <div class="add_product_header">  
+            <h3>Product Add </h3>
+            <div class="buttons">
+                <button @click.prevent="handleSubmit">Save</button>   
+                    <button @click="cancel" type="button">Cancel</button>
             </div>
+        </div>
+        <hr class="hr">
+
+
+        <form id="product_form">
+            <p class="error" v-if="this.errors['sku']">{{this.errors['sku'][0]}}</p>
             <div class="input">
-                <p v-if="this.errors['name']">{{this.errors['name'][0]}}</p>
-                <label for="name">Name</label>
-                <input type="text" id="name" v-model="name" name="name">
+                <label class="label" for="sku">SKU</label>
+                <input type="text" id="sku" name="sku" v-model="sku" placeholder="Please enter SKU">
             </div>
+            <p class="error" v-if="this.errors['name']">{{this.errors['name'][0]}}</p>
             <div class="input">
-                <p v-if="this.errors['price']">{{this.errors['price'][0]}}</p>
-                <label for="price">Price</label>
-                <input type="number" id="price" v-model="price" name="price">
+                <label class="label" for="name">Name</label>
+                <input type="text" id="name" v-model="name" name="name" placeholder="Please enter name">
             </div>
+            <p class="error" v-if="this.errors['price']">{{this.errors['price'][0]}}</p>
             <div class="input">
-                <p v-if="this.errors['type']">{{this.errors['type'][0]}}</p>
+                <label class="label" for="price">Price</label>
+                <input type="number" id="price" v-model="price" name="price" placeholder="Please enter price">
+            </div>
+            <p class="error" v-if="this.errors['type']">{{this.errors['type'][0]}}</p>
+            <div class="input">
                 <select @change="displayType" name="type" id="productType" v-model="type">
                     <option value="" disabled>Select Type</option>
                     <option value="dvd" id="DVD">DVD</option>
@@ -46,7 +52,7 @@
                 v-if="this.type === 'dvd'"/>
 
                 <div class="input">
-                    <input type="submit" value="Save" />
+                     
                 </div>
         </form>
         <div v-if="this.products.length !== 0" v-for="product in products">
@@ -85,7 +91,9 @@ export default {
     },
     name: 'AddProduct',
     methods: {
-
+        cancel() {
+            this.$router.push('/');
+        },
        async handleSubmit(event) {
             const data = {
                 sku: this.sku,
@@ -144,7 +152,24 @@ export default {
 </script>
 
 <style scoped>
-p {
-    color: red;
+.container {
+    padding: 25px;
 }
+.hr {
+    margin: 10px 0;
+}
+.add_product_header {
+    display: flex;
+    justify-content: space-between;
+}
+.buttons > * {
+    margin-right: 10px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #264653;
+}
+
+
 </style>
